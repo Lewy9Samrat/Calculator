@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Your Favorite Online Store</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #b2a707, #3e3e3b);
+            background-attachment: fixed;
+            color: #333;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #2C3E50;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #f39c12;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ecf0f1;
+        }
+        .container {
+            padding: 2rem;
+            text-align: center;
+            color: #ecf0f1;
+        }
+        .section {
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .section:hover {
+            transform: scale(1.02);
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .product {
+            background: #ffffff;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            border: 2px solid transparent;
+            width: 250px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .product img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border: 2px solid #ff4757;
+        }
+        .cart-billing {
+            background: #f8f9fa;
+            padding: 2rem;
+            margin: 2rem auto;
+            width: 50%;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #219150;
+        }
+    </style>
+    <script>
+        let cart = [];
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            updateCart();
+        }
+        function updateCart() {
+            let cartSection = document.getElementById('cart');
+            let total = 0;
+            cartSection.innerHTML = '<h2>Shopping Cart</h2>';
+            cart.forEach(item => {
+                cartSection.innerHTML += `<p>${item.product} - $${item.price}</p>`;
+                total += item.price;
+            });
+            cartSection.innerHTML += `<h3>Total: $${total}</h3>`;
+            cartSection.innerHTML += `<button class='button' onclick='checkout()'>Proceed to Payment</button>`;
+        }
+        function checkout() {
+            alert('Redirecting to Payment Page');
+        }
+    </script>
+</head>
+<body>
+
+<nav>
+    <h1>ShopEase</h1>
+    <div>
+        <a href="#home-necessaries">Products</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Welcome to ShopEase - Your Favorite Online Store!</h1>
+</div>
+
+<section id="home-necessaries" class="section">
+    <h1>Products</h1>
+    <div class="products">
+        <div class="product" onclick="addToCart('Vacuum Cleaner', 120)">
+            <img src="https://img.freepik.com/free-photo/top-view-wi-fi-controlled-vacuum-cleaner-with-smartphone_23-2148779302.jpg?ga=GA1.1.467929618.1739686447&semt=ais_authors_boost" alt="Vacuum Cleaner">
+            <p>Vacuum Cleaner - $120</p>
+        </div>
+        <div class="product" onclick="addToCart('Air Purifier', 150)">
+            <img src="https://via.placeholder.com/100" alt="Air Purifier">
+            <p>Air Purifier - $150</p>
+        </div>
+        <div class="product" onclick="addToCart('Iron', 40)">
+            <img src="https://via.placeholder.com/100" alt="Iron">
+            <p>Iron - $40</p>
+        </div>
+        <div class="product" onclick="addToCart('Blender', 80)">
+            <img src="https://via.placeholder.com/100" alt="Blender">
+            <p>Blender - $80</p>
+        </div>
+        <div class="product" onclick="addToCart('Water Heater', 100)">
+            <img src="https://via.placeholder.com/100" alt="Water Heater">
+            <p>Water Heater - $100</p>
+        </div>
+        <div class="product" onclick="addToCart('Water Heater', 100)">
+            <img src="https://via.placeholder.com/100" alt="Water Heater">
+            <p>Blankets - $100</p>
+        </div>
+        <div class="product" onclick="addToCart('Water Heater', 100)">
+            <img src="https://via.placeholder.com/100" alt="Water Heater">
+            <p>Pillows - $100</p>
+        </div>
+        <div class="product" onclick="addToCart('Water Heater', 100)">
+            <img src="https://via.placeholder.com/100" alt="Water Heater">
+            <p>Bed Table - $100</p>
+        </div> <div class="product" onclick="addToCart('Water Heater', 100)">
+            <img src="https://via.placeholder.com/100" alt="Water Heater">
+            <p>Wadrobe - $100</p>
+        </div>
+    </div>
+</section>
+
+<section id="cart" class="cart-billing">
+    <h2>Shopping Cart</h2>
+    <p>Your cart is empty.</p>
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: support@shopease.com</p>
+    <p>Phone: +123456789</p>
+</section>
+
+</body>
+</html>
