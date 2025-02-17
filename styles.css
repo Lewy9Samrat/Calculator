@@ -10,9 +10,15 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f4f4f4;
+    background: #827d7d;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-
+ h2:hover{
+    color: rgb(234, 232, 232)  ;
+    text-transform: lowercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }
 .calculator {
     width: 300px;
     background: #222;
